@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+}
+
+input {
+    width: 30vw;
+    border: 1px solid black;
+}
+
+button {
+    margin: 10px auto;
+    width: 200px;
+    cursor: pointer;
+}
+
+.register-msg {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+}

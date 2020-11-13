@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Homepage from './components/Homepage';
+import RegisterUser from './components/user/RegisterUser';
+import SignInUser from './components/user/SignInUser';
+import AddRecipe from './components/user/AddRecipe';
+import recipeDetails from './components/RecipeDetails';
+import SearchDataForResults from './components/SearchDataForResults';
+import SavedRecipes from './components/SavedRecipes';
+import savedRecipeDetails from './components/SavedRecipeDetails';
+import ShoppingList from './components/ShoppingList';
+import GetRandomRecipe from './components/GetRandomMeal';
+import MealsByCategories from './components/MealsByCategories';
+import MealCategory from './components/MealCategory'
+import { BrowserRouter, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+
+  render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Route path="/" exact component={Homepage}/>
+            <Route path="/register" component={RegisterUser}/>
+            <Route path="/signin" component={SignInUser}/>
+            <Route path="/addrecipe" component={AddRecipe}/>
+            <Route path="/recipes" exact component={SearchDataForResults} />
+            <Route path="/recipes/:id" component={recipeDetails} />
+            <Route path="/savedrecipes" exact component={SavedRecipes}/>
+            <Route path="/savedrecipes/:id" component={savedRecipeDetails}/> 
+            <Route path="/shoppinglist" component={ShoppingList}/>
+            <Route path="/random" component={GetRandomRecipe}/>
+            <Route path="/mealsbycategory" exact component={MealsByCategories}/>
+            <Route path="/mealsbycategory/:category" exact component={MealCategory}/>
+            <Footer/>
+            {/* <SearchDataForResults /> */}
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+
+  }
 }
 
 export default App;
