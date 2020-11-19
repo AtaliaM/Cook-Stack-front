@@ -1,28 +1,28 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { withAuthenticationRequired } from "@auth0/auth0-react";
+import { Route, Redirect } from "react-router-dom";
+import Auth from '../../Auth';
 
-import Authentication from "../components/Authentication";
-
-/**
- When you wrap your components in the withAuthenticationRequired Higher-Order Component 
- and users who have not logged in visit a page that renders that component (Protected Page), 
- your React application will redirect that user to the login page. 
- 
- After the user logs in, Auth0 will redirect the user to your React application,
-and the Auth0Provider will take the users to the page they intended to access before login.
- */
-class ProtectedRoute extends React.Component {
-   render() {
-      return (
-         <Route
-            component={withAuthenticationRequired(this.props.component, {
-               onRedirecting: () => <Authentication />,
-            })}
-            {...this.props.args}
-         />
-      );
-   }
+const ProtectedRoute = ({component: Component, ...rest}) => {
+   return (
+      <Route {...rest} render= {
+         (props)=> {
+            if(Auth.isAuthenticated()) {
+            return <Component {...props}/>
+            }
+            else {
+               return <Redirect to= {
+                  {
+                     pathname:"/login",
+                     state: {
+                        from: props.location //the location we trying to go to
+                     }
+                  } 
+               }/>
+            }
+      }} />
+      
+   )
 }
+
 
 export default ProtectedRoute;

@@ -1,13 +1,14 @@
 import React from 'react';
 import cookstackapi from '../../apis/cook-stack';
 import myLocalStorage from '../../localStorage';
+import Auth from '../../Auth';
 import './RegisterUser.css';
 
 class registerUser extends React.Component  {
     state = {name: "", email: "", password: ""}
 
     onInputChange = (event) => {
-        console.log(event.target.name);
+        // console.log(event.target.name);
         if(event.target.name === "name") {
             this.setState({ name: event.target.value })
         }
@@ -33,6 +34,9 @@ class registerUser extends React.Component  {
             console.log(response);
             console.log(response.data.token);
             myLocalStorage.save("token", response.data.token);
+            Auth.login(()=> {
+                this.props.history.push("/addrecipe") //////after register, we will be redirected to this page
+            })
         } catch(e) {
             console.log(e);
         }

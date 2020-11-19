@@ -1,6 +1,7 @@
 import React from 'react';
 import cookstackapi from '../../apis/cook-stack';
 import myLocalStorage from '../../localStorage';
+import Auth from '../../Auth';
 
 import './SignInUser.css';
 
@@ -26,6 +27,10 @@ class SignInUser extends React.Component  {
             console.log(response);
             this.setState({user:response.data.user});
             myLocalStorage.save("token", response.data.token);
+
+            Auth.login(()=> {
+                this.props.history.push("/addrecipe") //////after login, we will be redirected to this page
+            })
         } catch(e) {
             console.log(e);
         }
