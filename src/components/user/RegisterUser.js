@@ -1,5 +1,6 @@
 import React from 'react';
 import cookstackapi from '../../apis/cook-stack';
+import myLocalStorage from '../../localStorage';
 import './RegisterUser.css';
 
 class registerUser extends React.Component  {
@@ -26,9 +27,12 @@ class registerUser extends React.Component  {
         }
         console.log(userData);
         try {
-            const response = await cookstackapi.post("/users", userData)
+            const response = await cookstackapi.post("/users", userData);
+
             console.log("sending request to save new user");
             console.log(response);
+            console.log(response.data.token);
+            myLocalStorage.save("token", response.data.token);
         } catch(e) {
             console.log(e);
         }

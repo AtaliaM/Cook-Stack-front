@@ -1,5 +1,5 @@
 import React from 'react';
-import cookstackapi from '../../apis/cook-stack';
+// import cookstackapi from '../../apis/cook-stack';
 import './AddRecipe.css';
 
 class AddRecipe extends React.Component {

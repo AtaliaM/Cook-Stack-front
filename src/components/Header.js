@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import SearchDataForResults from './SearchDataForResults';
+import LogOut from './user/LogOut';
 import './Header.css';
 
 
@@ -15,6 +15,7 @@ class Header extends React.Component {
                     <button><Link to= "/mealsbycategory">Meals By Category</Link></button>
                     <button><Link to="/savedrecipes">Saved Recipes</Link></button>
                     <button><Link to="/shoppinglist">Shopping List</Link></button>
+                    <LogOut/>
                 </div>
                 {/* <SearchDataForResults /> */}
             </>

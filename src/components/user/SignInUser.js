@@ -1,11 +1,12 @@
 import React from 'react';
 import cookstackapi from '../../apis/cook-stack';
+import myLocalStorage from '../../localStorage';
 
 import './SignInUser.css';
 
 class SignInUser extends React.Component  {
 
-    state = {email: "", password: "", users: []}
+    state = {email: "", password: "", user: {}}
 
     onInputChange = (event) => {
         console.log(event.target.name);
@@ -19,10 +20,12 @@ class SignInUser extends React.Component  {
 
     handlingSubmit = async() => {
         console.log("sending request to get existing user data");
+        const reqBody = {email: this.state.email, password: this.state.password};
         try {
-            const response = await cookstackapi.get("/users");
-            this.setState({users:[...response.data]});
-            console.log(response.data);
+            const response = await cookstackapi.post("/users/login", reqBody);
+            console.log(response);
+            this.setState({user:response.data.user});
+            myLocalStorage.save("token", response.data.token);
         } catch(e) {
             console.log(e);
         }
