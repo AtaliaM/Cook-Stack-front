@@ -6,6 +6,7 @@ import Homepage from './components/Homepage';
 import RegisterUser from './components/user/RegisterUser';
 import SignInUser from './components/user/SignInUser';
 import AddRecipe from './components/user/AddRecipe';
+import MapUsersRecipes from './components/MapUsersRecipes';
 import recipeDetails from './components/RecipeDetails';
 import SearchDataForResults from './components/SearchDataForResults';
 import SavedRecipes from './components/SavedRecipes';
@@ -30,6 +31,7 @@ class App extends React.Component {
               <Route path="/register" component={RegisterUser} />
               <Route path="/signin" component={SignInUser} />
               <PrivateRoute exact path="/addrecipe" component={AddRecipe} />
+              <Route path="/usersrecipes" component={MapUsersRecipes}/>
               <Route path="/recipes" exact component={SearchDataForResults} />
               <Route path="/recipes/:id" component={recipeDetails} />
               <Route path="/savedrecipes" exact component={SavedRecipes} />

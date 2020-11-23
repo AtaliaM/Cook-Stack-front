@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import './Header.css';
 
 
@@ -12,6 +12,7 @@ class Header extends React.Component {
                     <button><Link to="/">Home</Link></button>
                     <button><Link to="/recipes">Search Recipes</Link></button>
                     <button><Link to= "/mealsbycategory">Meals By Category</Link></button>
+                    <button><Link to="/usersrecipes">Recipes from users</Link></button>
                     <button><Link to="/savedrecipes">Saved Recipes</Link></button>
                     <button><Link to="/shoppinglist">Shopping List</Link></button>
                 </div>

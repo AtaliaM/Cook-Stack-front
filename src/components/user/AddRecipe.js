@@ -1,13 +1,19 @@
 import React from 'react';
-// import cookstackapi from '../../apis/cook-stack';
+import cookstackapi from '../../apis/cook-stack';
+import myLocalStorage from '../../localStorage';
 import './AddRecipe.css';
 
 class AddRecipe extends React.Component {
 
-    state= {title: "", ingredients: "", instructions: "", image: ""} //to break the ingredients string to array, or find another way of ingredients input
+    state= {title: "", ingredients: "", instructions: "", image: "", owner: ""} //to break the ingredients string to array, or find another way of ingredients input
 
+    componentDidMount() {
+        const user = myLocalStorage.get("username");
+        this.setState({owner: user});
+    }
+    
     onInputChange = (event) => {
-        console.log(event.target.name);
+        // console.log(event.target.name);
         if(event.target.name === "title") {
             this.setState({ title: event.target.value })
         }
@@ -18,13 +24,43 @@ class AddRecipe extends React.Component {
             this.setState({ instructions: event.target.value })
         }
         else {
-            this.setState({ image: event.target.value })
-            console.log(event.target.value);
+        //    const file = document.getElementById("img");
+        //    const reader = new FileReader();
+        //    reader.addEventListener("load", ()=> {
+        //        this.setState({image: reader.result})
+        //     })
+        //     reader.readAsDataURL(file.files[0])
         }
     }
 
-    handlingSubmit = async() => {
+    handlingSubmit = async(event) => {
+        event.preventDefault();
         console.log("on submit");
+        const token = myLocalStorage.get("token");
+
+        // if(this.state.image==="") {
+        //     this.setState({image: "Noimage.jpg"});
+        // }
+
+        const recipeToSubmit = {
+            title:this.state.title,
+            ingredients: this.state.ingredients,
+            instructions: this.state.instructions,
+            image: this.state.image
+        }
+        try {
+            const recipe = await cookstackapi.post("/recipes",recipeToSubmit, {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            });
+            console.log(recipe);
+            window.location.replace("/");
+
+        }
+        catch(e) {
+            console.log(e);
+        }
 
     }
 
@@ -32,7 +68,7 @@ class AddRecipe extends React.Component {
         return (
             <div className="recipe-container">
                 <h2>Add new recipe</h2>
-                <form>
+                <form onSubmit={this.handlingSubmit}>
                     <label>Recipe title</label>
                     <input type="text" id="title" name="title" value={this.state.title} onChange={this.onInputChange}></input>
                     <label>Ingredients</label>
@@ -40,8 +76,8 @@ class AddRecipe extends React.Component {
                     <label>Instructions</label>
                     <textarea name="instructions" rows="10" cols="60" value={this.state.instructions} onChange={this.onInputChange}/>
                     <label>Recipe image</label>
-                    <input className="image-input" type="file" id="img" name="img" accept="image/*" value={this.state.image} onChange={this.onInputChange}/>
-                    <input className="submit" type="submit" onClick={this.handlingSubmit}></input>
+                    <input className="image-input" type="file" id="img" name="img" accept="image/*" onChange={this.onInputChange}/>
+                    <input className="submit" type="submit"></input>
                 </form>
             </div>
         )

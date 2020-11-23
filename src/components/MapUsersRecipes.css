@@ -1,0 +1,22 @@
+
+   h5 {
+    width: fit-content;
+    margin: 0 auto;
+    font-size:18px ;
+    color:#492F18;
+    font-weight: bold ;
+    background-color: white;
+}
+
+.save-button {
+    width: 170px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.users-meals-container {
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    grid-template-rows: repeat(5, 260px);
+    padding-bottom: 30px;
+}
