@@ -31,7 +31,6 @@ class App extends React.Component {
               <Route path="/" exact component={Homepage} />
               <Route path="/register" component={RegisterUser} />
               <Route path="/signin" component={SignInUser} />
-              <Route path="/logout" component={LogOut}/>
               <PrivateRoute exact path="/addrecipe" component={AddRecipe} />
               <Route path="/recipes" exact component={SearchDataForResults} />
               <Route path="/recipes/:id" component={recipeDetails} />

@@ -26,7 +26,7 @@ class registerUser extends React.Component  {
             email: this.state.email,
             password:this.state.password
         }
-        console.log(userData);
+        // console.log(userData);
         try {
             const response = await cookstackapi.post("/users", userData);
 
