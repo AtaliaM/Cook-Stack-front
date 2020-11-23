@@ -34,6 +34,8 @@ class registerUser extends React.Component  {
             console.log(response);
             console.log(response.data.token);
             myLocalStorage.save("token", response.data.token);
+            myLocalStorage.save("username", userData.name);
+
             Auth.login(()=> {
                 this.props.history.push("/addrecipe") //////after register, we will be redirected to this page
             })

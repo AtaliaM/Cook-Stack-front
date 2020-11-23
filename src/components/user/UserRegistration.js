@@ -6,6 +6,8 @@ import './UserRegistration.css';
 
 class UserRegistration extends React.Component {
 
+
+
     registerUser = () => {
         console.log("sending user to register route");
         window.location.replace("http://localhost:3000/register");
@@ -20,6 +22,7 @@ class UserRegistration extends React.Component {
         console.log("log out");
         try {
             myLocalStorage.remove("token");
+            myLocalStorage.remove("username");
             Auth.logout(() => {
                 console.log("in auth logout");
                 console.log(this.props);
@@ -45,8 +48,10 @@ class UserRegistration extends React.Component {
             )
         }
         else {
+            const username = myLocalStorage.get("username");
             return (
                 <div className="reg-option">
+                    <h3>Welcome, {username}</h3>
                     <button onClick={this.handlingLogOut}>Log Out</button>
                 </div>
             )

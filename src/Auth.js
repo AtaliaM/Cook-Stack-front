@@ -6,6 +6,7 @@ class Auth {
 
     login(callback) {
         this.authenticated = true;
+        console.log(this.authenticated);
         callback();
     }
 
@@ -15,6 +16,7 @@ class Auth {
     }
 
     isAuthenticated() {
+        console.log(this.authenticated);
         return this.authenticated;
     }
 }

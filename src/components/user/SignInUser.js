@@ -27,7 +27,7 @@ class SignInUser extends React.Component  {
             console.log(response);
             this.setState({user:response.data.user});
             myLocalStorage.save("token", response.data.token);
-
+            myLocalStorage.save("username", response.data.user.name);
             Auth.login(()=> {
                 this.props.history.push("/addrecipe") //////after login, we will be redirected to this page
             })
