@@ -1,4 +1,3 @@
-// import myLocalStorage from './localStorage';
 
 class Auth {
     constructor() {
@@ -19,7 +18,6 @@ class Auth {
         return this.authenticated;
     }
 }
-
 
 export default new Auth();
 
