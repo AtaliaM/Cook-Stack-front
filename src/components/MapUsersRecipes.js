@@ -60,7 +60,7 @@ class MapUsersRecipes extends React.Component {
                                         <div>
                                             <h5 className="tooltip">{singleData.title}<span className="tooltiptext">{longStrMeal || singleData.title}</span></h5>
                                             
-                                            <img src={`data:image/png;base64,${singleData.image}`} alt={singleData.title} style={{ width: "150px", height: "150px", marginTop: "10px", border: "2px solid black" }}></img>
+                                            <img src="https://www.actbus.net/fleetwiki/images/8/84/Noimage.jpg" alt={singleData.title} style={{ width: "150px", height: "150px", marginTop: "10px", border: "2px solid black" }}></img>
                                         </div>
                                     </Link>
                                     <button className="save-button" disabled={buttonInfo.buttonDisable} onClick={() => this.saveToLocalStorage(singleData)}>{buttonInfo.buttonText}</button>

@@ -68,7 +68,7 @@ class AddRecipe extends React.Component {
         return (
             <div className="recipe-container">
                 <h2>Add new recipe</h2>
-                <form onSubmit={this.handlingSubmit}>
+                <form action="/upload" method="POST" encType="multipart/form-data" onSubmit={this.handlingSubmit}>
                     <label>Recipe title</label>
                     <input type="text" id="title" name="title" value={this.state.title} onChange={this.onInputChange}></input>
                     <label>Ingredients</label>
