@@ -1,3 +1,5 @@
+import myLocalStorage from './localStorage';
+import mylocalStorage from './localStorage';
 
 class Auth {
     constructor() {
@@ -7,11 +9,13 @@ class Auth {
     login(callback) {
         this.authenticated = true;
         console.log(this.authenticated);
+        myLocalStorage.save("auth", "true");
         callback();
     }
 
     logout(callback) {
         this.authenticated = false;
+        myLocalStorage.remove("auth", "true");
         callback();
     }
 
