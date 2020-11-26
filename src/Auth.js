@@ -1,5 +1,4 @@
 import myLocalStorage from './localStorage';
-import mylocalStorage from './localStorage';
 
 class Auth {
     constructor() {

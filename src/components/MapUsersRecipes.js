@@ -4,10 +4,10 @@ import cookstackapi from '../apis/cook-stack';
 import myLocalStorage from '../localStorage';
 import "./MapUsersRecipes.css";
 
-let buttonInfo = {
-    buttonDisable: false,
-    buttonText: "Save Recipe",
-}
+// let buttonInfo = {
+//     buttonDisable: false,
+//     buttonText: "Save Recipe",
+// }
 
 let longStrMeal;
 
@@ -63,7 +63,7 @@ class MapUsersRecipes extends React.Component {
                                             <img src="https://www.actbus.net/fleetwiki/images/8/84/Noimage.jpg" alt={singleData.title} style={{ width: "150px", height: "150px", marginTop: "10px", border: "2px solid black" }}></img>
                                         </div>
                                     </Link>
-                                    <button className="save-button" disabled={buttonInfo.buttonDisable} onClick={() => this.saveToLocalStorage(singleData)}>{buttonInfo.buttonText}</button>
+                                    {/* <button className="save-button" disabled={buttonInfo.buttonDisable} onClick={() => this.saveToLocalStorage(singleData)}>{buttonInfo.buttonText}</button> */}
                                 </div>
                             )
                         })}

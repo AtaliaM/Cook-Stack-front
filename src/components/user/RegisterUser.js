@@ -39,6 +39,7 @@ class registerUser extends React.Component  {
             Auth.login(()=> {
                 this.props.history.push("/addrecipe") //////after register, we will be redirected to this page
             })
+
         } catch(e) {
             console.log(e);
         }
@@ -51,11 +52,11 @@ class registerUser extends React.Component  {
                 <div>
                 <h3 className="register-msg">Welcome! <span role="img" aria-labelledby="smile">😊</span></h3>
                     <label>Name</label>
-                    <input type="text" name="name" value={this.state.name} onChange={this.onInputChange}/>
+                    <input type="text" name="name" required value={this.state.name} onChange={this.onInputChange}/>
                     <label>Email</label>
-                    <input type="text" name="email" value={this.state.email} onChange={this.onInputChange}/>
+                    <input type="text" name="email" required value={this.state.email} onChange={this.onInputChange}/>
                     <label>password</label>
-                    <input type="text" name="password" value={this.state.password} onChange={this.onInputChange}/>
+                    <input type="password" name="password" required value={this.state.password} onChange={this.onInputChange}/>
                     <button onClick={this.handlingSubmit}>Register</button>
                 </div>
             </div>

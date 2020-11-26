@@ -26,6 +26,7 @@ class SavedRecipes extends React.Component {
 
     componentDidMount() {
         const recipes = myLocalStorage.get("recipes") || [];
+        // const userRecipes = myLocalStorage.get("users-recipes") || [];
         this.setState({ savedRecipes: [...recipes] });
     }
 

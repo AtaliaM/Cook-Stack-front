@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import myLocalStorage from '../../localStorage';
-import Auth from '../../Auth';
+// import Auth from '../../Auth';
 
 const ProtectedRoute = ({component: Component, ...rest}) => {
    return (

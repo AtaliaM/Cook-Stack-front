@@ -48,7 +48,7 @@ class SignInUser extends React.Component  {
                     <label>Email</label>
                     <input type="text" name="email" value={this.state.email} onChange={this.onInputChange}/>
                     <label>password</label>
-                    <input type="text" name="password" value={this.state.password} onChange={this.onInputChange}/>
+                    <input type="password" name="password" value={this.state.password} onChange={this.onInputChange}/>
                     <button onClick={this.handlingSubmit}>Sign in</button>
                 </div>
             </div>
