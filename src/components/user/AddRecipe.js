@@ -25,14 +25,15 @@ class AddRecipe extends React.Component {
             this.setState({ instructions: event.target.value })
         }
         else {
+            const token = myLocalStorage.get("token");
             const file = document.getElementById("img").files[0];
             // console.log(file.files[0]);
             // console.log(file.files.item(0));
-            // const formData = new FormData()
+            const formData = new FormData()
 
-            // formData.append('img', file[0]);
-
-            const reader = new FileReader();
+            formData.append('img', file);
+            // this.setState({image:formData});
+            // const reader = new FileReader();
 
             //    reader.addEventListener("load", ()=> {
             //        this.setState({image: reader.result})
@@ -40,28 +41,28 @@ class AddRecipe extends React.Component {
 
             // reader.readAsBinaryString(file.files[0]);
 
-            reader.addEventListener("load", function () {
-                // convert image file to base64 string
-                const a = reader.result;
-                console.log(a);
+            // reader.addEventListener("load", function () {
+            //     // convert image file to base64 string
+            //     const a = reader.result;
+            //     console.log(a);
                 
-              }, false);
+            //   }, false);
             
-              if (file) {
-                reader.readAsDataURL(file);
-              }
+            //   if (file) {
+            //     reader.readAsDataURL(file);
+            //   }
 
             // const token = myLocalStorage.get("token");
-            // try {
-            //     await cookstackapi.post("/upload", formData, {
-            //         headers: {
-            //             Authorization: "Bearer " + token,
-            //             "Content-Type": "multipart/form-data"
-            //         },
-            //     });
-            // } catch (e) {
-            //     console.log(e);
-            // }
+            try {
+                await cookstackapi.post("/upload", formData, {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                        "Content-Type": "multipart/form-data"
+                    },
+                });
+            } catch (e) {
+                console.log(e);
+            }
 
         }
     }
@@ -75,7 +76,8 @@ class AddRecipe extends React.Component {
             title: this.state.title,
             ingredients: this.state.ingredients,
             instructions: this.state.instructions,
-            image: this.state.image
+            username: this.state.owner[0],
+            // image: this.state.image
         }
         console.log(recipeToSubmit);
         try {

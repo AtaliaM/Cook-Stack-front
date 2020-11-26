@@ -70,6 +70,7 @@ class UserRecipeDetails extends React.Component {
                     <img style={imageStyle} src="https://www.actbus.net/fleetwiki/images/8/84/Noimage.jpg" alt={this.state.currentRecipe.strMeal}></img>
                     {/* <h3 style={{ margin: "10px" }}>Category: {this.state.currentRecipe.strCategory}</h3>
                     <h3 style={{ margin: "10px" }}>kitchen: {this.state.currentRecipe.strArea}</h3> */}
+                    <h4>Uploaded by: {this.state.currentRecipe.username}</h4>
                     <h3>-Ingredients-</h3>
                     <h5>Click<span><i className="fas fa-plus-circle"  style={{marginRight: "3px"}}></i></span> to add ingredient to shopping list</h5>
                     {this.displayIngredients()}
