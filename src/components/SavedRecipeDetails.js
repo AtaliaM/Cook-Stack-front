@@ -19,15 +19,13 @@ class SavedRecipeDetails extends React.Component {
     componentDidMount() {
         this.fetchRecipe();
         // console.log(this.props.match.params.id);
-
     }
 
     fetchRecipe = async () => {
-        
             const recipeId = this.props.match.params.id;
             const response = await themealdb.get(`/lookup.php?i=${recipeId}`);
             this.setState({ currentRecipe: response.data.meals[0] })
-            console.log(this.state.currentRecipe);
+            // console.log(this.state.currentRecipe);
 
             this.fetchIngredients();
             this.fetchVideoSrc();
