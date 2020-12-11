@@ -38,3 +38,12 @@
     visibility: visible;
     opacity: 1;
   }
+
+  .h5style {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #492F18;
+    font-weight: bold;
+    background-color: white;
+  }

@@ -15,15 +15,6 @@ class SavedRecipes extends React.Component {
         gridTemplateRows: "repeat(5, 270px)",
     }
 
-    h5Style = {
-        width: "fit-content",
-        margin: "0 auto",
-        fontSize: "18px",
-        color: "#492F18",
-        fontWeight: "bold",
-        backgroundColor: "white",
-    }
-
     componentDidMount() {
         const recipes = myLocalStorage.get("recipes") || [];
         // const userRecipes = myLocalStorage.get("users-recipes") || [];
@@ -58,9 +49,7 @@ class SavedRecipes extends React.Component {
             console.log(t);
             this.setState({ savedRecipes: [...tempRecipes] });
         }
-
     }
-
 
     render() {
         if (this.state.savedRecipes.length !== 0) {
@@ -81,7 +70,7 @@ class SavedRecipes extends React.Component {
                                     <div key={singleData.idMeal} style={{ width: "170px" }}>
                                         <Link to={{ pathname: `/savedrecipes/${singleData.idMeal}`, obj: singleData }}>
                                             <div>
-                                                <h5 className="tooltip" style={this.h5Style}>{singleData.strMeal} <span className="tooltiptext">{longStrMeal || singleData.strMeal}</span></h5>
+                                                <h5 className="tooltip h5style">{singleData.strMeal} <span className="tooltiptext">{longStrMeal || singleData.strMeal}</span></h5>
                                                 <img src={singleData.strMealThumb} alt={singleData.strMeal} style={{ width: "150px", height: "150px", margin: "10px", border: "2px solid black" }}></img>
                                             </div>
                                         </Link>
@@ -101,7 +90,6 @@ class SavedRecipes extends React.Component {
         }
 
     }
-
 
 }
 
