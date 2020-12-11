@@ -74,7 +74,7 @@ class SavedRecipes extends React.Component {
                                                 <img src={singleData.strMealThumb} alt={singleData.strMeal} style={{ width: "150px", height: "150px", margin: "10px", border: "2px solid black" }}></img>
                                             </div>
                                         </Link>
-                                        <button onClick={() => this.removeFromSavedRecipes(singleData.idMeal)} style={{ cursor: "pointer", width: "160px", height: "50px" }}>Remove from saved recipes</button>
+                                        <button className="buttonstyle" onClick={() => this.removeFromSavedRecipes(singleData.idMeal)}>Remove from saved recipes</button>
                                     </div>
                                 )
                             })}

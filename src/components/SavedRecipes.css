@@ -47,3 +47,9 @@
     font-weight: bold;
     background-color: white;
   }
+
+  .buttonstyle {
+    cursor: pointer;
+    width: 160px;
+    height: 50px;
+  }
