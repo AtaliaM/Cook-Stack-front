@@ -7,7 +7,7 @@ import "./MapResults.css";
 const MapResults = (props) => {
 
     const data = props.data;
-    console.log(data);
+    // console.log(data);
     let longStrMeal;
 
    const h5Style = {
