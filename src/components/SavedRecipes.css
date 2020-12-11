@@ -53,3 +53,10 @@
     width: 160px;
     height: 50px;
   }
+
+  .imgstyle {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border: 2px solid black;
+  }

@@ -71,7 +71,7 @@ class SavedRecipes extends React.Component {
                                         <Link to={{ pathname: `/savedrecipes/${singleData.idMeal}`, obj: singleData }}>
                                             <div>
                                                 <h5 className="tooltip h5style">{singleData.strMeal} <span className="tooltiptext">{longStrMeal || singleData.strMeal}</span></h5>
-                                                <img src={singleData.strMealThumb} alt={singleData.strMeal} style={{ width: "150px", height: "150px", margin: "10px", border: "2px solid black" }}></img>
+                                                <img className="imgstyle" src={singleData.strMealThumb} alt={singleData.strMeal}></img>
                                             </div>
                                         </Link>
                                         <button className="buttonstyle" onClick={() => this.removeFromSavedRecipes(singleData.idMeal)}>Remove from saved recipes</button>
