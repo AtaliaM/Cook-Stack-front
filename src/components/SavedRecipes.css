@@ -60,3 +60,9 @@
     margin: 10px;
     border: 2px solid black;
   }
+
+  .initialMsg {
+    font-family: Pacifico, cursive;
+    font-size: 40px;
+    margin-top: 30px;
+  }

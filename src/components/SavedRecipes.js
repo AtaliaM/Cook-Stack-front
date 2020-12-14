@@ -3,6 +3,8 @@ import myLocalStorage from '../localStorage';
 import { Link } from 'react-router-dom';
 import "./SavedRecipes.css";
 
+//style={{ fontFamily: "Pacifico, cursive", fontSize: "40px", marginTop: "30px" }}
+
 let longStrMeal;
 
 class SavedRecipes extends React.Component {
@@ -85,7 +87,7 @@ class SavedRecipes extends React.Component {
         }
         else {
             return (
-                <div style={{ fontFamily: "Pacifico, cursive", fontSize: "40px", marginTop: "30px" }}>Save your recipes here! <span role="img" aria-label="xxxxx">😋</span></div>
+                <div className="initialMsg">Save your recipes here! <span role="img" aria-label="xxxxx">😋</span></div>
             )
         }
 
